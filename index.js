@@ -1,34 +1,43 @@
-let victories = 145;
-let defeats = 80;
-let result = subtrair(victories, defeats);
+class Heroi {
+    
+    constructor(nome, idade, tipo) {
+        this.nome = nome;
+        this.idade = idade;
+        this.tipo = tipo;
+    }
 
-function subtrair(victories, defeats){
-    return victories - defeats;
-} 
-let ranking;
+    
+    atacar() {
+        
+        let ataque;
+        switch (this.tipo) {
+            case "mago":
+                ataque = "usou magia";
+                break;
+            case "guerreiro":
+                ataque = "usou espada";
+                break;
+            case "monge":
+                ataque = "usou artes marciais";
+                break;
+            case "ninja":
+                ataque = "usou shuriken";
+                break;
+            default:
+                ataque = "usou um ataque genérico";
+        }
 
-if (result < 10 ) {
-    ranking = "Iron";
-} else if (result >= 11 && result <= 20) {
-    ranking = "Bronze";
-
-} else if (result >= 21 && result <= 50) {
-    ranking = "Silver"; 
-
-} else if (result >= 51 && result <= 70) {
-    ranking= "Gold";
-
-} else if (result >= 71 && result <= 90) {
-    ranking = "Platinum";
-
-} else if (result >= 91 && result <= 100) {
-    ranking = "Ascending";
-
-} else if (result >= 101 && result <= 140) {
-    ranking = "Immortal";
-
-} else {
-    ranking = "Radiante";
+        
+        console.log(`O ${this.tipo} ${this.nome} atacou usando ${ataque}`);
+    }
 }
 
-console.log("O heroi possui " + result + " vitórias e está na patente " + ranking)
+const mago = new Heroi("lincoln", 23, "mago");
+const guerreiro = new Heroi("ericklles", 21, "guerreiro");
+const monge = new Heroi("dennis", 34, "monge");
+const ninja = new Heroi("dayane", 25, "ninja");
+
+mago.atacar();
+guerreiro.atacar();
+monge.atacar();
+ninja.atacar();
